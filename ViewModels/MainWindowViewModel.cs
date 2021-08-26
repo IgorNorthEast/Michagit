@@ -4,8 +4,16 @@ using System.Text;
 
 namespace Cov19Test.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    internal class MainWindowViewModel : ViewModelBase
     {
-        public string Greeting => "StrartUp";
+        #region Window Title
+        /// <summary> Window title </summary>
+        private string _Title = "COVID-19 Analisys";
+        public string Title
+        {
+            get => _Title;
+            set => Set(ref _Title, value);
+        }
+        #endregion
     }
 }

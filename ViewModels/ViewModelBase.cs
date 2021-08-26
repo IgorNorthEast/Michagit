@@ -11,7 +11,7 @@ namespace Cov19Test.ViewModels
     // {
 
     // }
-    internal abstract class ViewModelBase : INotifyPropertyChanged
+    internal abstract class ViewModelBase : INotifyPropertyChanged, IDisposable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -22,10 +22,22 @@ namespace Cov19Test.ViewModels
 
         protected virtual bool Set<T>(ref T field, T value, [CallerMemberName] string PropertyName = null)
         {
-            if(Equals(field, value)) return false;
+            if (Equals(field, value)) return false;
             field = value;
             OnPropertyChanged(PropertyName);
             return true;
+        }
+        public bool _Disposed;
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+        protected virtual void Dispose(bool Disposing)
+        {
+            if(!Disposing || _Disposed) return;
+            _Disposed = true;
+            //Disposing resources
         }
     }
 }

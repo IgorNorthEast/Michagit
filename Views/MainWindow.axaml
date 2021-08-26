@@ -3,16 +3,27 @@
         xmlns:vm="using:Cov19Test.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" 
+        d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Cov19Test.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Cov19Test">
+        Title="{Binding Title}">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-<Grid>
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-</Grid>
-
+<DockPanel>
+    <Menu DockPanel.Dock="Top">
+        <MenuItem Header="Файл">
+            <MenuItem Header="Выход"/>
+        </MenuItem>
+        <MenuItem Header="Помощь"></MenuItem>
+    </Menu>
+    <Label DockPanel.Dock="Bottom" Background="Gray"
+            Height="20"></Label>
+    <TabControl>
+        <TabItem></TabItem>
+        <TabItem></TabItem>
+    </TabControl>
+</DockPanel>
 </Window>
