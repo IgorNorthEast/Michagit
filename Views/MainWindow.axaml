@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" 
         d:DesignWidth="800" d:DesignHeight="450"
+        Width="800" Height="450"
         x:Class="Cov19Test.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="{Binding Title}">
@@ -12,19 +13,20 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-<DockPanel>
+<DockPanel HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
     <Menu DockPanel.Dock="Top">
         <MenuItem Header="Файл">
-            <MenuItem Header="Выход"/>
+            <MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"/>
         </MenuItem>
         <MenuItem Header="Помощь">
             <MenuItem Header="О программе"/>
         </MenuItem>
     </Menu>
     <Label DockPanel.Dock="Bottom" Background="LightGray"
-            Height="20">
+            Height="30">
             <WrapPanel>
-                <TextBlock Text="123" MaxWidth="300" MinWidth="150"/>
+                <TextBlock Text="{Binding Status}" MaxWidth="300" MinWidth="150"/>
                 <ProgressBar Width="120" Height="14" Value="30"/>
             </WrapPanel>
     </Label>
@@ -46,6 +48,9 @@
                 <Ellipse Grid.Column="1"  Grid.Row="0"
                          Fill="Red" Stroke="Blue"
                          StrokeThickness="3"/>
+                <GridSplitter Grid.Column="0" Grid.RowSpan="2"
+                                HorizontalAlignment="Right"
+                                Width="1" Background="LightGray"/>
             </Grid>
         </TabItem>
         <TabItem Header="Tab2">
