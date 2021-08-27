@@ -9,21 +9,48 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="{Binding Title}">
 
-    <Design.DataContext>
+    <Window.DataContext>
         <vm:MainWindowViewModel/>
-    </Design.DataContext>
+    </Window.DataContext>
 <DockPanel>
     <Menu DockPanel.Dock="Top">
         <MenuItem Header="Файл">
             <MenuItem Header="Выход"/>
         </MenuItem>
-        <MenuItem Header="Помощь"></MenuItem>
+        <MenuItem Header="Помощь">
+            <MenuItem Header="О программе"/>
+        </MenuItem>
     </Menu>
-    <Label DockPanel.Dock="Bottom" Background="Gray"
-            Height="20"></Label>
+    <Label DockPanel.Dock="Bottom" Background="LightGray"
+            Height="20">
+            <WrapPanel>
+                <TextBlock Text="123" MaxWidth="300" MinWidth="150"/>
+                <ProgressBar Width="120" Height="14" Value="30"/>
+            </WrapPanel>
+    </Label>
     <TabControl>
-        <TabItem></TabItem>
-        <TabItem></TabItem>
+        <TabItem Header="Tab1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="63"/>
+                    <RowDefinition Height="325"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="157"/>
+                    <ColumnDefinition Width="637"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Grid.Column="0"  Grid.Row="0"
+                           Fill="Blue" Stroke="Red"
+                           Margin="5, 7"
+                           StrokeThickness="3"/>
+                <Ellipse Grid.Column="1"  Grid.Row="0"
+                         Fill="Red" Stroke="Blue"
+                         StrokeThickness="3"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Tab2">
+        
+        </TabItem>
     </TabControl>
 </DockPanel>
 </Window>
