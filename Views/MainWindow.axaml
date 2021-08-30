@@ -3,7 +3,6 @@
         xmlns:vm="using:Cov19Test.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:fa5="http://schemas.fontawesome.com/icons/"
         xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
         mc:Ignorable="d" 
         d:DesignWidth="800" d:DesignHeight="450"
@@ -15,11 +14,14 @@
     <Window.KeyBindings>
         <KeyBinding Gesture="CTRL+Q" Command="{Binding CloseApplicationCommand}"/>
     </Window.KeyBindings>
+
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
+
 <DockPanel HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch">
+
     <Menu DockPanel.Dock="Top">
         <MenuItem Header="Файл">
             <MenuItem Header="Выход" Command="{Binding CloseApplicationCommand}"/>
@@ -28,6 +30,7 @@
             <MenuItem Header="О программе"/>
         </MenuItem>
     </Menu>
+
     <Label DockPanel.Dock="Bottom" Background="LightGray"
             Height="30">
             <WrapPanel>
@@ -35,13 +38,18 @@
                 <ProgressBar Width="120" Height="14" Value="30"/>
             </WrapPanel>
     </Label>
+
     <TabControl>
         <TabItem>
+
             <TabItem.Header>
                 <StackPanel Orientation="Horizontal">
-                    <Button i:Attached.Icon="fab fa-github" />
+                    <i:Icon Value="fas fa-indent" Foreground="Red"
+                            Margin="0,0,5,0" />
+                    <TextBlock Text="Tab1"/>
                 </StackPanel>
             </TabItem.Header>
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="63"/>
@@ -63,10 +71,15 @@
                                 HorizontalAlignment="Right"
                                 Width="1" Background="LightGray"/>
             </Grid>
+
         </TabItem>
+
         <TabItem Header="Tab2">
         
         </TabItem>
+        
     </TabControl>
+
 </DockPanel>
+
 </Window>
