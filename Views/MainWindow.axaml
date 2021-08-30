@@ -3,6 +3,8 @@
         xmlns:vm="using:Cov19Test.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa5="http://schemas.fontawesome.com/icons/"
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
         mc:Ignorable="d" 
         d:DesignWidth="800" d:DesignHeight="450"
         Width="800" Height="450"
@@ -10,6 +12,9 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="{Binding Title}">
 
+    <Window.KeyBindings>
+        <KeyBinding Gesture="CTRL+Q" Command="{Binding CloseApplicationCommand}"/>
+    </Window.KeyBindings>
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -31,7 +36,12 @@
             </WrapPanel>
     </Label>
     <TabControl>
-        <TabItem Header="Tab1">
+        <TabItem>
+            <TabItem.Header>
+                <StackPanel Orientation="Horizontal">
+                    <Button i:Attached.Icon="fab fa-github" />
+                </StackPanel>
+            </TabItem.Header>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="63"/>
@@ -47,7 +57,8 @@
                            StrokeThickness="3"/>
                 <Ellipse Grid.Column="1"  Grid.Row="0"
                          Fill="Red" Stroke="Blue"
-                         StrokeThickness="3"/>
+                         StrokeThickness="3">
+                </Ellipse>
                 <GridSplitter Grid.Column="0" Grid.RowSpan="2"
                                 HorizontalAlignment="Right"
                                 Width="1" Background="LightGray"/>
