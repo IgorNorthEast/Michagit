@@ -1,0 +1,16 @@
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/bin/Debug/net5.0/COV19Console
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/bin/Debug/net5.0/COV19Console.deps.json
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/bin/Debug/net5.0/COV19Console.runtimeconfig.json
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/bin/Debug/net5.0/COV19Console.runtimeconfig.dev.json
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/bin/Debug/net5.0/COV19Console.dll
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/bin/Debug/net5.0/ref/COV19Console.dll
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/bin/Debug/net5.0/COV19Console.pdb
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/obj/Debug/net5.0/COV19Console.csproj.AssemblyReference.cache
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/obj/Debug/net5.0/COV19Console.GeneratedMSBuildEditorConfig.editorconfig
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/obj/Debug/net5.0/COV19Console.AssemblyInfoInputs.cache
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/obj/Debug/net5.0/COV19Console.AssemblyInfo.cs
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/obj/Debug/net5.0/COV19Console.csproj.CoreCompileInputs.cache
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/obj/Debug/net5.0/COV19Console.dll
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/obj/Debug/net5.0/ref/COV19Console.dll
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/obj/Debug/net5.0/COV19Console.pdb
+/media/administrator/9E2277792277556D/Projects/CV19_TEST_PROJ/Cov19Test/COV19Console/obj/Debug/net5.0/COV19Console.genruntimeconfig.cache
