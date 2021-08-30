@@ -42,6 +42,7 @@ namespace COV19Console
             .Select(s => DateTime.Parse(s, CultureInfo.InvariantCulture))
             .ToArray();
 
+        private static
         public static void Main(string[] args)
         {
             // foreach (var data_line in GetDataLines())
