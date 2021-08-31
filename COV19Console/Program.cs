@@ -10,7 +10,7 @@ namespace COV19Console
 {
     class Program
     {
-        private const string data_url = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_19-covid-Confirmed_archived_0325.csv";
+        private const string data_url = @"https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/archived_data/archived_time_series/time_series_19-covid-Confirmed_archived_0325.csv";
 
         private static async Task<Stream> GetDataStream()
         {
@@ -31,7 +31,7 @@ namespace COV19Console
                 {
                     continue;
                 }
-                yield return line;
+                yield return line.Replace("Korea,", "Korea -");
             }
         }
 
@@ -42,7 +42,20 @@ namespace COV19Console
             .Select(s => DateTime.Parse(s, CultureInfo.InvariantCulture))
             .ToArray();
 
-        private static
+        private static IEnumerable<(string Country, string Province, int[] Counts)> GetData()
+        {
+            var lines = GetDataLines()
+                .Skip(1)
+                .Select(line => line.Split(','));
+
+                foreach (var row in lines)
+                {
+                    var province = row[0].Trim();
+                    var country_name = row[1].Trim(' ', '"');
+                    var counts = row.Skip(4).Select(int.Parse).ToArray();
+                    yield return (country_name, province, counts);
+                }
+        }
         public static void Main(string[] args)
         {
             // foreach (var data_line in GetDataLines())
@@ -53,6 +66,9 @@ namespace COV19Console
             //var dates = GetDates();
             //Array.ForEach(x=> dates[x].ToString(), Console.WriteLine);
             //Console.WriteLine(string.Join($"\r\n", dates));
+
+            var russia_data = GetData().First(v => v.Country.Equals("Russia", StringComparison.OrdinalIgnoreCase));
+            Console.WriteLine(string.Join("\r\n", GetDates().Zip(russia_data.Counts, (date, count) => $"{date:dd:mm} - {count}")));
         }
     }
 }
