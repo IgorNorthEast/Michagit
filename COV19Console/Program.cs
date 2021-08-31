@@ -67,8 +67,8 @@ namespace COV19Console
             //Array.ForEach(x=> dates[x].ToString(), Console.WriteLine);
             //Console.WriteLine(string.Join($"\r\n", dates));
 
-            var russia_data = GetData().First(v => v.Country.Equals("Russia", StringComparison.OrdinalIgnoreCase));
-            Console.WriteLine(string.Join("\r\n", GetDates().Zip(russia_data.Counts, (date, count) => $"{date:dd:mm} - {count}")));
+            var russia_data = GetData().First(v => v.Country.Equals("Belarus", StringComparison.OrdinalIgnoreCase));
+            Console.WriteLine(string.Join("\r\n", GetDates().Zip(russia_data.Counts, (date, count) => $"{date} - {count}")));
         }
     }
 }
