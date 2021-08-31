@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+        xmlns:oxy="http://oxyplot.org/avalonia"
         mc:Ignorable="d" 
         d:DesignWidth="800" d:DesignHeight="450"
         Width="800" Height="450"
@@ -41,7 +42,7 @@
 
     <TabControl>
 
-        <TabItem>
+        <TabItem IsVisible="False">
             <TabItem.Header>
                 <StackPanel Orientation="Horizontal">
                     <i:Icon Value="fas fa-indent" Foreground="Red"
@@ -74,7 +75,16 @@
         </TabItem>
 
         <TabItem Header="Tab2">
-        
+            <oxy:Plot>
+                <oxy:Plot.Axes>
+                    <oxy:LinearAxis Position="Left"/>
+                    <oxy:LinearAxis Position="Left"/>
+                </oxy:Plot.Axes>
+                <oxy:LineSeries Color="Red"
+                                Items="{Binding TestDataPoints}"
+                                DataFieldX="XValue"
+                                DataFieldY="YValue"/>
+            </oxy:Plot>
         </TabItem>
         
     </TabControl>

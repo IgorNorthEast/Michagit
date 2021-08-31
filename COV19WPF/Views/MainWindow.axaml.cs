@@ -1,6 +1,8 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using OxyPlot;
+using OxyPlot.Series;
 
 namespace COV19WPF.Views
 {

@@ -68,10 +68,10 @@ namespace COV19WPF.ViewModels
             #endregion
 
             var data_points = new List<DataPoint>((int)(360 / 0.1));
-            for (var x = 0d; x < 30; x += 0.1)
+            for (var x = 0d; x <= 30; x += 0.1)
             {
                 const double to_rad = Math.PI / 360;
-                var y = Math.Sin(x + to_rad);
+                var y = Math.Sin(2 * Math.PI * x * to_rad);
 
                 data_points.Add(new DataPoint { XValue = x, YValue = y});
             }
