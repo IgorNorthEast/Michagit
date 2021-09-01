@@ -1,65 +1,165 @@
-using System;
-using System.Windows.Input;
+// using System;
+// using System.Windows.Input;
+// namespace COV19WPF.Infrastructure.Commands.Base
+// {
+//      public class Command : CommandBase
+//     {
+//         public static ICommand Create(ref Command command, Action execute)
+//         {
+//             return command ?? (command = new Command(execute));
+//         }
 
-namespace COV19WPF.Infrastructure.Commands.Base
-{
-    internal class CommandBase : ICommand
-    {
-        private readonly Action execute;
-        private readonly Func<bool> canExecute;
+//         public static ICommand Create(ref Command command, Action execute, Func<bool> canExecute)
+//         {
+//             return command ?? (command = new Command(execute, canExecute));
+//         }
 
-        public CommandBase(Action execute)
-            : this(execute, null)
-        { }
+//         public static ICommand Create<TParam>(ref Command<TParam> command, Action<TParam> execute)
+//         {
+//             return command ?? (command = new Command<TParam>(execute));
+//         }
 
-        public CommandBase(Action execute, Func<bool> canExecute)
-        {
-            if (execute == null)
-                throw new ArgumentNullException("execute is null.");
+//         public static ICommand Create<TParam>(ref Command<TParam> command, Action<TParam> execute, Predicate<TParam> canExecute)
+//         {
+//             return command ?? (command = new Command<TParam>(execute, canExecute));
+//         }
 
-            this.execute = execute;
-            this.canExecute = canExecute;
-            this.RaiseCanExecuteChangedAction = RaiseCanExecuteChanged;
-            SimpleCommandManager.AddRaiseCanExecuteChangedAction(ref RaiseCanExecuteChangedAction);
-        }
+//         private Action _execute;
+//         private Func<bool> _canExecute;
 
-        ~CommandBase()
-        {
-            RemoveCommand();
-        }
+//         private Command(Action execute, Func<bool> canExecute)
+//         {
+//             _canExecute = canExecute;
+//             _execute = execute;
+//         }
 
-        public void RemoveCommand()
-        {
-            SimpleCommandManager.RemoveRaiseCanExecuteChangedAction(RaiseCanExecuteChangedAction);
-        }
+//         private Command(Action execute) : this(execute, null)
+//         {
+//         }
 
-        bool ICommand.CanExecute(object parameter)
-        {
-            return CanExecute;
-        }
+//         public override bool CanExecute(object parameter)
+//         {
+//             return _canExecute == null ? true : _canExecute();
+//         }
 
-        public void Execute(object parameter)
-        {
-            execute();
-            SimpleCommandManager.RefreshCommandStates();
-        }
+//         public override void Execute(object parameter)
+//         {
+//             _execute();
+//         }
 
-        public bool CanExecute
-        {
-            get { return canExecute == null || canExecute(); }
-        }
+//         public override void Dispose()
+//         {
+//             _canExecute = null;
+//             _execute = null;
+//         }
+//     }
 
-        public void RaiseCanExecuteChanged()
-        {
-            var handler = CanExecuteChanged;
-            if (handler != null)
-            {
-                handler(this, new EventArgs());
-            }
-        }
 
-        private readonly Action RaiseCanExecuteChangedAction;
+//     public class Command<T> : CommandBase
+//     {
+//         private Action<T> _execute;
+//         private Predicate<T> _canExecute;
 
-        public event EventHandler CanExecuteChanged;
-    }
-}
+//         internal Command(Action<T> execute, Predicate<T> canExecute)
+//         {
+//             _canExecute = canExecute;
+//             _execute = execute;
+//         }
+
+//         internal Command(Action<T> execute) : this(execute, null)
+//         {
+//         }
+
+//         public override bool CanExecute(object parameter)
+//         {
+//             return _canExecute == null ? true : _canExecute((T)parameter);
+//         }
+
+//         public override void Execute(object parameter)
+//         {
+//             _execute?.Invoke((T)parameter);
+//         }
+
+//         public override void Dispose()
+//         {
+//             _canExecute = null;
+//             _execute = null;
+//         }
+//     }
+
+//     public abstract class CommandBase : ICommand, IDisposable
+//     {
+//         public event EventHandler CanExecuteChanged
+//         {
+//             add => CommandManager.RequerySuggested += value;
+//             remove => CommandManager.RequerySuggested -= value;
+//         }
+
+//         public abstract bool CanExecute(object parameter);
+
+//         public abstract void Execute(object parameter);
+
+//         public abstract void Dispose();
+//     }
+// }
+//     internal class CommandBase : ICommand
+//     {
+//         private readonly Action execute;
+//         private readonly Func<bool> canExecute;
+
+//         public CommandBase(Action execute)
+//             : this(execute, null)
+//         { }
+
+//         public CommandBase(Action execute, Func<bool> canExecute)
+//         {
+//             if (execute == null)
+//                 throw new ArgumentNullException("execute is null.");
+
+//             this.execute = execute;
+//             this.canExecute = canExecute;
+//             this.RaiseCanExecuteChangedAction = RaiseCanExecuteChanged;
+//             SimpleCommandManager.AddRaiseCanExecuteChangedAction(ref RaiseCanExecuteChangedAction);
+//         }
+
+//         ~CommandBase()
+//         {
+//             RemoveCommand();
+//         }
+
+//         public void RemoveCommand()
+//         {
+//             SimpleCommandManager.RemoveRaiseCanExecuteChangedAction(RaiseCanExecuteChangedAction);
+//         }
+
+//         bool ICommand.CanExecute(object parameter)
+//         {
+//             return CanExecute;
+//         }
+
+//         public void Execute(object parameter)
+//         {
+//             execute();
+//             SimpleCommandManager.RefreshCommandStates();
+//         }
+
+//         public bool CanExecute
+//         {
+//             get { return canExecute == null || canExecute(); }
+//         }
+
+//         public void RaiseCanExecuteChanged()
+//         {
+//             var handler = CanExecuteChanged;
+//             if (handler != null)
+//             {
+//                 handler(this, new EventArgs());
+//             }
+//         }
+
+//         private readonly Action RaiseCanExecuteChangedAction;
+
+//         public event EventHandler CanExecuteChanged;
+//     }
+
+// }

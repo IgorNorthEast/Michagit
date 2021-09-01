@@ -11,7 +11,7 @@ namespace COV19WPF.ViewModels
     // {
 
     // }
-    internal abstract class ViewModelBase : INotifyPropertyChanged, IDisposable
+    internal abstract class ViewModelBase : ReactiveObject, INotifyPropertyChanged, IDisposable
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
